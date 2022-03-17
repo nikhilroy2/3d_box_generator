@@ -1,0 +1,171 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+:root {
+  --margin-correction: calc(var(--cube-depth) / -2);
+}
+
+body {
+  margin: .5rem;
+}
+
+.box_3d_wrapper {
+  max-width: 800px;
+  margin: 5rem auto;
+  -webkit-box-shadow: 3px 3px 5px 6px rgba(204, 204, 204, 0.596);
+          box-shadow: 3px 3px 5px 6px rgba(204, 204, 204, 0.596);
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.box_3d_wrapper .box_3d_sizing {
+  margin-bottom: 2rem;
+}
+
+.box_3d_wrapper .box_3d_sizing .form_group {
+  margin-bottom: 1rem;
+}
+
+.box_3d_wrapper .box_3d_sizing .form_group label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.box_3d_wrapper .box_3d_sizing .form_group input {
+  padding: 12px;
+  width: 100%;
+  border: 1px solid rgba(153, 153, 153, 0.541);
+  outline: none;
+  border-radius: 5px;
+}
+
+.box_3d_wrapper .box_view {
+  display: block;
+  width: var(--cube-width);
+  height: var(--cube-height);
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  margin: 0 auto;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.box_3d_wrapper .box_view .box_3d {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transform: rotateX(-6deg) rotateY(6deg);
+          transform: rotateX(-6deg) rotateY(6deg);
+}
+
+.box_3d_wrapper .box_view .box_3d .cube__face {
+  position: absolute;
+  background: rgba(186, 146, 98, 0.8);
+  opacity: 0.85;
+  border: 1px solid #555;
+  width: var(--cube-width);
+  height: var(--cube-height);
+}
+
+.box_3d_wrapper .box_view .box_3d .cube__face--front {
+  width: var(--cube-width);
+  height: var(--cube-height);
+  -webkit-transform: translate3d(0, 0, calc(var(--cube-depth) / 2));
+          transform: translate3d(0, 0, calc(var(--cube-depth) / 2));
+  background: rgba(186, 146, 98, 0.8) url("../img/newlogo.png") center/120px 120px no-repeat;
+}
+
+.box_3d_wrapper .box_view .box_3d .cube__face--back {
+  width: var(--cube-width);
+  height: var(--cube-height);
+  -webkit-transform: rotateY(180deg) translate3d(0, 0, calc(var(--cube-depth) / 2));
+          transform: rotateY(180deg) translate3d(0, 0, calc(var(--cube-depth) / 2));
+}
+
+.box_3d_wrapper .box_view .box_3d .cube__face--left {
+  width: var(--cube-depth);
+  height: var(--cube-height);
+  left: 50%;
+  margin-left: var(--margin-correction);
+  -webkit-transform: rotateY(-90deg) translate3d(0, 0, calc(var(--cube-width) / 2));
+          transform: rotateY(-90deg) translate3d(0, 0, calc(var(--cube-width) / 2));
+}
+
+.box_3d_wrapper .box_view .box_3d .cube__face--right {
+  width: var(--cube-depth);
+  height: var(--cube-height);
+  left: 50%;
+  margin-left: var(--margin-correction);
+  -webkit-transform: rotateY(90deg) translate3d(0, 0, calc(var(--cube-width) / 2));
+          transform: rotateY(90deg) translate3d(0, 0, calc(var(--cube-width) / 2));
+}
+
+.box_3d_wrapper .box_view .box_3d .cube__face--top {
+  width: var(--cube-width);
+  height: var(--cube-depth);
+  top: 50%;
+  margin-top: var(--margin-correction);
+  -webkit-transform: rotateX(90deg) translate3d(0, 0, calc(var(--cube-height) / 2));
+          transform: rotateX(90deg) translate3d(0, 0, calc(var(--cube-height) / 2));
+}
+
+.box_3d_wrapper .box_view .box_3d .cube__face--bottom {
+  width: var(--cube-width);
+  height: var(--cube-depth);
+  top: 50%;
+  margin-top: var(--margin-correction);
+  -webkit-transform: rotateX(-90deg) translate3d(0, 0, calc(var(--cube-height) / 2));
+          transform: rotateX(-90deg) translate3d(0, 0, calc(var(--cube-height) / 2));
+}
+
+.box_3d_wrapper section.box_3d_controlling {
+  margin-top: 3rem;
+}
+
+.box_3d_wrapper section.box_3d_controlling ul {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  max-width: 800px;
+  margin: auto;
+}
+
+.box_3d_wrapper section.box_3d_controlling ul li {
+  list-style: none;
+  -ms-flex-preferred-size: 33.33%;
+      flex-basis: 33.33%;
+  padding: 8px;
+  text-align: center;
+}
+
+.box_3d_wrapper section.box_3d_controlling ul li button {
+  margin: 0;
+  width: 100px;
+  height: 40px;
+  display: inline-block;
+  background: black;
+  border: 2px solid #3289a8;
+  outline: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="box_3d_wrapper">
+        <div class="box_3d_sizing">
+            <div class="form_group">
+                <label for="">Width (In/Pixel)</label>
+                <input type="number" id="cube-width" value="900">
+            </div>
+            <div class="form_group">
+                <label for="">Height (In/Pixel)</label>
+                <input type="number" id="cube-height" value="900">
+            </div>
+            <div class="form_group">
+                <label for="">Depth (In/Pixel)</label>
+                <input type="number" id="cube-depth" value="200">
+            </div>
+        </div>
+        <div class="box_view">
+            <div class="box_3d">
+                <div class="cube__face  cube__face--front"></div>
+                <div class="cube__face  cube__face--back"></div>
+                <div class="cube__face  cube__face--left"></div>
+                <div class="cube__face  cube__face--right"></div>
+                <div class="cube__face  cube__face--top"></div>
+                <div class="cube__face  cube__face--bottom"></div>
+            </div>
+        </div>
+        <section class="box_3d_controlling">
+            <ul>
+                <li><button onclick="boxSide('front')">Front</button></li>
+                <li><button onclick="boxSide('left')">Left</button></li>
+                <li><button onclick="boxSide('right')">Right</button></li>
+                <li><button onclick="boxSide('top')">Top</button></li>
+                <li><button onclick="boxSide('bottom')">Bottom</button></li>
+                <li><button onclick="boxSide('back')">Back</button></li>
+            </ul>
+        </section>
+    </div>
+
+
+
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
